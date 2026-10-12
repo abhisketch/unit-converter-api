@@ -1,0 +1,19 @@
+@host = http://localhost:5080
+
+### List supported units
+GET {{host}}/api/units
+
+### Length: 10 meters to feet
+GET {{host}}/api/convert?category=length&from=meter&to=foot&value=10
+
+### Temperature: 100 C to F
+GET {{host}}/api/convert?category=temperature&from=celsius&to=fahrenheit&value=100
+
+### Mass: 5 kg to pounds (symbols and plurals work too)
+GET {{host}}/api/convert?category=mass&from=kg&to=lbs&value=5
+
+### Error: unknown unit (400)
+GET {{host}}/api/convert?category=length&from=meter&to=parsec&value=1
+
+### Error: missing parameter (400)
+GET {{host}}/api/convert?category=length&from=meter
